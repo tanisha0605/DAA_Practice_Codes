@@ -10,14 +10,15 @@ public class SelectionSort {
     static void selectionSort(int[] arr) {
         int n = arr.length;
 
-        for (int i = 0; i < n - 1; i++) {
-            int min_idx = i;
-            for (int j = i + 1; j < n; j++) {
-                if (arr[j] < arr[min_idx]) {
-                    min_idx = j;
+        for(int i=0; i<n-1; i++){
+            int min_index=i;
+            for(int j=i+1;j<n;j++){
+                if(arr[j]<arr[min_index]){
+                    min_index=j;
                 }
+                
             }
-            swap(arr, min_idx, i);
+            swap(arr,min_index,i);
         }
     }
 
@@ -31,7 +32,7 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {64, 25, 12, 22, 11};
+        int[] arr = {64, 25, 12, 22, 11, 78, 21, 9, 45, 66, 90};
         System.out.println("Original array:");
         printArray(arr);
         
