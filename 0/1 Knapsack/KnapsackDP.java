@@ -1,5 +1,18 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class KnapsackDP {
-    static int knapsack(int[] p, int[] w, int M, int n) {
+    static class Result {
+        int maxProfit;
+        List<Integer> includedWeights;
+
+        Result(int maxProfit, List<Integer> includedWeights) {
+            this.maxProfit = maxProfit;
+            this.includedWeights = includedWeights;
+        }
+    }
+
+    static Result knapsack(int[] p, int[] w, int M, int n) {
         int[][] profit = new int[n + 1][M + 1];
 
         for (int i = 0; i <= n; i++) {
@@ -14,7 +27,19 @@ public class KnapsackDP {
             }
         }
 
-        return profit[n][M];
+        // Track which weights are included
+        List<Integer> includedWeights = new ArrayList<>();
+        int maxProfit = profit[n][M];
+        int remainingWeight = M;
+        for (int i = n; i > 0 && maxProfit > 0; i--) {
+            if (maxProfit != profit[i - 1][remainingWeight]) {
+                includedWeights.add(w[i - 1]);
+                maxProfit -= p[i - 1];
+                remainingWeight -= w[i - 1];
+            }
+        }
+
+        return new Result(profit[n][M], includedWeights);
     }
 
     public static void main(String[] args) {
@@ -23,8 +48,10 @@ public class KnapsackDP {
         int M = 50;
         int n = p.length;
 
-        int maxProfit = knapsack(p, w, M, n);
-        System.out.println("Maximum profit: " + maxProfit);
+        Result result = knapsack(p, w, M, n);
+        System.out.println("Maximum profit: " + result.maxProfit);
+        System.out.println("Weights included: " + result.includedWeights);
     }
 }
+
 
