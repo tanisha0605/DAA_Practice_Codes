@@ -1,4 +1,3 @@
-// A Naive recursive implementation of LCS problem in java
 
 import java.io.*;
 import java.util.*;
