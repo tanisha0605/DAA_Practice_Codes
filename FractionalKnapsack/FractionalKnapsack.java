@@ -1,4 +1,6 @@
+package FractionalKnapsack;
 public class FractionalKnapsack {
+    
     static void fractionalKnapsack(int n, int[] w, int[] p, int W) {
         int i, j;
         int weightUsed = 0;
