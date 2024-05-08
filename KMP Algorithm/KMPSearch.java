@@ -19,7 +19,7 @@ public class KMPSearch {
         }
     }
 
-    static void KMPSearch(String pat, String txt) {
+    static void KMPSearcher(String pat, String txt) {
         int M = pat.length();
         int N = txt.length();
         int[] lps = new int[M];
@@ -45,7 +45,7 @@ public class KMPSearch {
     public static void main(String[] args) {
         String txt = "Mamlayalayalam";
         String pat = "alaya";
-        KMPSearch(pat, txt);
+        KMPSearcher(pat, txt);
     }
 }
 
