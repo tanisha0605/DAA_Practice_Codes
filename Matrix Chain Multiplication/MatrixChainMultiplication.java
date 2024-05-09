@@ -1,6 +1,6 @@
 public class MatrixChainMultiplication {
     // Function to find the minimum number of multiplications needed for matrix chain multiplication
-    static int matrixChainOrder(int[] p, int n, int[] bracket) {
+    static int matrixChainOrder(int[] dimension, int n, int[] bracket) {
         // Create a 2D array to store minimum number of multiplications
         int[][] m = new int[n][n];
 
@@ -15,7 +15,7 @@ public class MatrixChainMultiplication {
                 m[i][j] = Integer.MAX_VALUE;
                 // Try all possible split points and find the one that minimizes the number of multiplications
                 for (int k = i; k <= j - 1; k++) {
-                    int q = m[i][k] + m[k + 1][j] + p[i - 1] * p[k] * p[j];
+                    int q = m[i][k] + m[k + 1][j] + dimension[i - 1] * dimension[k] * dimension[j];
                     if (q < m[i][j]) {
                         m[i][j] = q;
                         bracket[i * n + j] = k; // Store the split point for optimal parenthesization
