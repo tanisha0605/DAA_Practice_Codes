@@ -22,7 +22,7 @@ class insertion
 
     public static void main(String args[])
     {
-        int arr[] = { 12, 11, 13, 5, 6 };
+        int arr[] = { 12, 11, 13, 5, 6, 35, 22, 87, 9, 110 };
         int n=arr.length;
         insertion ob = new insertion();
         ob.sort(arr,n);
