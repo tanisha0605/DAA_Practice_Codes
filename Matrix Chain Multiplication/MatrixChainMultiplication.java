@@ -40,12 +40,12 @@ public class MatrixChainMultiplication {
     }
 
     public static void main(String[] args) {
-        int[] arr = {1, 5, 4, 3, 2, 1}; // Dimensions of matrices
-        int n = arr.length; // Number of matrices
+        int[] dimension = {1, 5, 4, 3, 2, 1}; // Dimensions of matrices
+        int n = dimension.length; // Number of matrices
         int[] bracket = new int[n * n]; // Array to store split points for optimal parenthesization
 
         // Find the minimum number of multiplications and print the optimal parenthesization
-        System.out.println("Minimum number of multiplications is " + matrixChainOrder(arr, n, bracket));
+        System.out.println("Minimum number of multiplications is " + matrixChainOrder(dimension, n, bracket));
         System.out.print("Optimal parenthesization is: ");
         printParenthesis(1, n - 1, n, bracket);
         System.out.println();
