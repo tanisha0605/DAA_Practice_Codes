@@ -1,16 +1,16 @@
 public class KMPSearch {
     static void computeLPSArray(String pat, int M, int[] lps) {
-        int len = 0;
+        int j = 0;
         lps[0] = 0;
         int i = 1;
         while (i < M) {
-            if (pat.charAt(i) == pat.charAt(len)) {
-                len++;
-                lps[i] = len;
+            if (pat.charAt(i) == pat.charAt(j)) {
+                j++;
+                lps[i] = j;
                 i++;
             } else {
-                if (len != 0) {
-                    len = lps[len - 1];
+                if (j != 0) {
+                    j = lps[j - 1];
                 } else {
                     lps[i] = 0;
                     i++;
