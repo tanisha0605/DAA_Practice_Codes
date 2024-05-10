@@ -5,16 +5,13 @@ public class KMPSearch {
         int i = 1;
         while (i < M) {
             if (pat.charAt(i) == pat.charAt(j)) {
-                j++;
-                lps[i] = j;
-                i++;
+                lps[i] = j+1;
+                i++;j++;
+            } else if (j > 0) {
+                j = lps[j - 1];
             } else {
-                if (j != 0) {
-                    j = lps[j - 1];
-                } else {
-                    lps[i] = 0;
-                    i++;
-                }
+                lps[i] = 0;
+                i++;
             }
         }
     }
