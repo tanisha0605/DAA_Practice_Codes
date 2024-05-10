@@ -1,73 +1,68 @@
+import java.util.Arrays;
+public class JobSequencing {
 
-public class JobSequencing{
+    public static void jobSequencing(int[] jobs, int[] profits, int[] deadlines, int dmax) {
+        int n = jobs.length;
 
-    public static void jobSequencing(int[] jobs, int[] profits, int[] deadlines, int dmax){
-        for(int i=0; i<jobs.length; i++){
-            for(int j=i; j<jobs.length; j++){
-                if(profits[i]<profits[j]){
-                    int tempProf=profits[i];
-                    int tempDeadLine=deadlines[i];
-                    int tempJobs=jobs[i];
+        // Sort jobs based on profits in descending order
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (profits[i] < profits[j]) {
+                    int temp = profits[i];
+                    profits[i] = profits[j];
+                    profits[j] = temp;
 
-                    profits[i]=profits[j];
-                    deadlines[i]=deadlines[j];
-                    jobs[i]=jobs[j];
+                    temp = deadlines[i];
+                    deadlines[i] = deadlines[j];
+                    deadlines[j] = temp;
 
-                    profits[j]=tempProf;
-                    deadlines[j]=tempDeadLine;
-                    jobs[j]=tempJobs;
+                    temp = jobs[i];
+                    jobs[i] = jobs[j];
+                    jobs[j] = temp;
                 }
             }
         }
 
-        // this part is just for visualisation
-       for(int i=0; i<jobs.length; i++){
-           System.out.print(jobs[i] + "\t") ;
-       }
-        System.out.println("");
-        for(int i=0; i<jobs.length; i++){
-            System.out.print(deadlines[i] + "\t") ;
-        }
-        System.out.println("");
-        for(int i=0; i<jobs.length; i++){
-            System.out.print(profits[i] + "\t") ;
-        }
-        System.out.println("\n");
+        // Array to store the sequence of jobs executed
+        int[] slot = new int[dmax];
+        Arrays.fill(slot, -1);
 
-        int profit=0;
-        int[] slot=new int[dmax];
-        for(int i=0; i<dmax; i++){
-            slot[i]=-1;
-        }
-        int count=0;
+        // Variables to keep track of total profit and number of jobs executed
+        int profit = 0;
+        int count = 0;
 
-        for(int i=0; i<jobs.length; i++){
-            for(int j=deadlines[i]-1; j>=0; j--){
-                if (slot[j]==-1){
-                    slot[j]=jobs[i];
-                    profit=profit+ profits[i];
+        // Assign jobs to slots based on deadlines
+        for (int i = 0; i < n; i++) {
+            for (int j = Math.min(dmax - 1, deadlines[i] - 1); j >= 0; j--) {
+                if (slot[j] == -1) {
+                    slot[j] = jobs[i];
+                    profit += profits[i];
                     count++;
                     break;
                 }
             }
-            if(count==dmax){
+            if (count == dmax) {
                 break;
             }
         }
 
-        for(int i=0; i<dmax; i++){
-            System.out.print(slot[i] + "\t");
+        // Output the sequence of jobs executed and total profit
+        System.out.print("Jobs Sequence: ");
+        for (int i = 0; i < dmax; i++) {
+            if (slot[i] != -1) {
+                System.out.print(slot[i] + " ");
+            }
         }
-
-        System.out.println("\n\ntotal profit: " + profit);
-
+        System.out.println("\nTotal Profit: " + profit);
     }
-      public static void main(String[] args) {
 
-        int[] jobs={1,2,3,4,5,6,7};
-        int[] profits={3,5,20,18,2,7,30};
-        int[] deadlines={1,3,4,3,2,1,2};
+    public static void main(String[] args) {
+        int[] jobs = {1, 2, 3, 4, 5, 6, 7};
+        int[] profits = {3, 5, 20, 18, 2, 7, 30};
+        int[] deadlines = {1, 3, 4, 3, 2, 1, 2};
+        int dmax = 4;
 
-        jobSequencing(jobs, profits,deadlines, 4);
+        jobSequencing(jobs, profits, deadlines, dmax);
     }
 }
+
