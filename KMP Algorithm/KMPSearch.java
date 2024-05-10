@@ -31,7 +31,7 @@ public class KMPSearch {
                 System.out.println("Found pattern at index " + (i - j));
                 j = lps[j - 1];
             } else if (i < N && pat.charAt(j) != txt.charAt(i)) {
-                if (j != 0)
+                if (j > 0)
                     j = lps[j - 1];
                 else
                     i = i + 1;
