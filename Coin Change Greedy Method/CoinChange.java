@@ -3,8 +3,7 @@ import java.util.Vector;
 
 class CoinChange
 {
-	static int deno[] = {1, 2, 5, 10, 20, 
-	50, 100, 500, 1000};
+	static int deno[] = {1, 2, 5, 10, 20, 50, 100, 500, 1000};
 	static int n = deno.length;
 	static void findMin(int V)
 	{
