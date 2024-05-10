@@ -32,4 +32,3 @@ class CoinChange
 	}
 }
 
-// This code is contributed by 29AjayKumar
