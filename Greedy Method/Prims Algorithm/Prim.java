@@ -6,7 +6,7 @@
 // import java.lang.*;
 // import java.util.*;
 
-class MST {
+class Prim {
 
 	// Number of vertices in the graph
 	private static final int V = 5;
@@ -100,7 +100,7 @@ class MST {
 
 	public static void main(String[] args)
 	{
-		MST t = new MST();
+		Prim t = new Prim();
 		int graph[][] = new int[][] { { 0, 2, 0, 6, 0 },
 									{ 2, 0, 3, 8, 5 },
 									{ 0, 3, 0, 0, 7 },
