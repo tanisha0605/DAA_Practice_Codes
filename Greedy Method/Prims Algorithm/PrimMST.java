@@ -8,8 +8,7 @@ static int INT_MAX = Integer.MAX_VALUE;
 // Returns true if edge u-v is a valid edge to be
 // include in MST. An edge is valid if one end is
 // already included in MST and other is not in MST.
-static boolean isValidEdge(int u, int v,
-						boolean[] inMST)
+static boolean isValidEdge(int u, int v,boolean[] inMST)
 {
 	if (u == v)
 		return false;
