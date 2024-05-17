@@ -15,7 +15,7 @@ static int find(int i)
 }
 
 // Does union of i and j. It returns
-// false if i and j are already in same
+// false if i and j are already in same 
 // set.
 static void union(int i, int j)
 {
