@@ -5,7 +5,8 @@ public class SubsetSum {
         if (currSum == sum) {
             System.out.print("{");
             for (int i = 0; i < index; i++)
-                System.out.print(subset[i]);
+                if(subset[i] != 0)
+                    System.out.print(subset[i]+" ");
             System.out.println("}");
             return;
         }
