@@ -1,6 +1,3 @@
-// Simple Java implementation for Kruskal's
-// algorithm
-import java.util.*;
 
 class KruskalMST
 {
