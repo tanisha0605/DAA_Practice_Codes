@@ -3,7 +3,7 @@ public class SubsetSum {
     static void printSubset(int arr[], int n, int sum, int index, int currSum, int[] subset) {
         // If the current sum equals the desired sum, print the subset
         if (currSum == sum) {
-            System.out.print("{");
+            System.out.print("{ ");
             for (int i = 0; i < index; i++)
                 if(subset[i] != 0)
                     System.out.print(subset[i]+" ");
