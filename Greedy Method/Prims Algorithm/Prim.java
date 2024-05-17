@@ -30,13 +30,15 @@ class Prim {
 
 	// A utility function to print the constructed MST
 	// stored in parent[]
-	void printMST(int parent[], int graph[][])
-	{
-		System.out.println("Edge \tWeight");
-		for (int i = 1; i < V; i++)
-			System.out.println(parent[i] + " - " + i + "\t"
-							+ graph[i][parent[i]]);
-	}
+	void printMST(int parent[], int graph[][]) {
+        System.out.println("Edge \tWeight");
+        int totalCost = 0;
+        for (int i = 1; i < V; i++) {
+            System.out.println(parent[i] + " - " + i + "\t" + graph[i][parent[i]]);
+            totalCost += graph[i][parent[i]];
+        }
+        System.out.println("Minimum Cost: " + totalCost);
+    }
 
 	// Function to construct and print MST for a graph
 	// represented using adjacency matrix representation
