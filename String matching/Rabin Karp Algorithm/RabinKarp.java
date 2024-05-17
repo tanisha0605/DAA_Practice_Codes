@@ -52,9 +52,7 @@ public class RabinKarp  {
 			// Calculate hash value for next window of text:
 			// Remove leading digit, add trailing digit
 			if (i < N - M) {
-				t = (d * (t - txt.charAt(i) * h)
-					+ txt.charAt(i + M))
-					% q;
+				t = (d * (t - txt.charAt(i) * h)+ txt.charAt(i + M))% q;
 
 				// We might get negative value of t,
 				// converting it to positive
